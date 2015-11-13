@@ -4,6 +4,7 @@
 using namespace std;
 
 Classic::Classic():Cd(){
+	cout<<"\n Classic default constructor called ";
 	primary =new char[1];
 	
 }
@@ -13,13 +14,18 @@ Classic::Classic(char * s1, char * s2, char *s3, int n, double x):Cd(s1,s2,n,x){
 }
 
 Classic::~Classic(){
-	cout<<"Classic Destroyed";
+	cout<<"\n Classic Destroyed";
+	delete [] primary;
 }
 
 Classic::Classic(const Classic &right){
-	for(int i=0;i<50;i++ ){
-		primary[i]=right.primary[i];
-	}
+	cout<<"\n Classic copy constructor ";
+	//delete[] primary;
+	primary=new char[sizeof(right.primary)];
+	   for(int i=0; right.primary[i]!='\0'; i++) 
+    {
+        primary[i]=right.primary[i];
+    }
 
 	Cd::Cd(right);
 }
@@ -32,11 +38,14 @@ void Classic::report() const{
 	Cd::report();
 }
 
-Classic& Classic::operator=(const Classic &right){
-
-	for(int i=0;right.primary[i]!='\0';i++ ){
-		primary[i]=right.primary[i];
-	}
+Classic Classic::operator=(const Classic &right){
+	cout<<"\n Classic overload =";
+	delete[] primary;
+	primary=new char[sizeof(right.primary)];
+	   for(int i=0; right.primary[i]!='\0'; i++) 
+    {
+        primary[i]=right.primary[i];
+    }
 
 	Cd::Cd(right);
 

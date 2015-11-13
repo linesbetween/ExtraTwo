@@ -21,7 +21,7 @@ public:
 
 	//made virtual for polymorphism
 	virtual void report() const; // reports all the CD data
-	virtual Cd & operator=(const Cd &d);
+	virtual Cd  operator=(const Cd &d);
 };
 
 #endif

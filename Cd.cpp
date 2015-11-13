@@ -5,6 +5,7 @@ using namespace std;
 
 
 Cd::Cd(){
+	cout<<"\n Cd default constructor called";
 	label= new char[1];
 	performers = new char[1];
 	selections = 0;
@@ -21,18 +22,21 @@ Cd::Cd(char *s1, char *s2, int n, double x){
 
 
 Cd::Cd(const Cd &d){
-
-	for(int i=0; d.label[i]!='\0'; i++) //copy string by value
-    {
-        label[i]=d.label[i];
-    }
-
-	for(int i=0; d.performers[i]!='\0'; i++) 
+	cout<<"\n Cd copy constructor";
+	//delete[] label;
+	//cout<<"delete default label";
+	//delete[] performers;
+		label = new char [sizeof(d.label)];
+		//cout<<"new label created";
+	   for(int i=0;label[i]!='\0';i++){
+		label[i]=d.label[i];
+	}
+       performers=new char[sizeof(d.performers)];
+	   for(int i=0; d.performers[i]!='\0'; i++) 
     {
         performers[i]=d.performers[i];
     }
-	
-	
+   
 	selections=d.selections;
 	playtime=d.playtime;
 	
@@ -41,6 +45,8 @@ Cd::Cd(const Cd &d){
 
 Cd::~Cd(){
 	cout<<"\n destroyed Cd";
+	delete []label;
+	delete [] performers;
 }
 
 
@@ -61,17 +67,20 @@ void Cd::report() const{
 	
 }
 
-Cd& Cd:: operator=(const Cd &d){
-	for(int i=0; d.label[i]!='\0'; i++) 
-    {
-        label[i]=d.label[i];
-    }
-
-	for(int i=0; d.performers[i]!='\0'; i++) 
+Cd Cd:: operator=(const Cd &d){
+	cout<<"\n Cd overload =";
+	delete[] label;
+	delete[] performers;
+		label = new char [sizeof(d.label)];
+	   for(int i=0;label[i]!='\0';i++){
+		label[i]=d.label[i];
+	}
+       performers=new char[sizeof(d.performers)];
+	   for(int i=0; d.performers[i]!='\0'; i++) 
     {
         performers[i]=d.performers[i];
     }
-	
+   
 	selections=d.selections;
 	playtime=d.playtime;
 
