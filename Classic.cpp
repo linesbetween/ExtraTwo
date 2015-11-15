@@ -38,7 +38,7 @@ void Classic::report() const{
 	Cd::report();
 }
 
-Classic Classic::operator=(const Classic &right){
+Classic& Classic::operator=(const Classic &right){
 	cout<<"\n Classic overload =";
 	delete[] primary;
 	primary=new char[sizeof(right.primary)];
@@ -46,8 +46,27 @@ Classic Classic::operator=(const Classic &right){
     {
         primary[i]=right.primary[i];
     }
+	
+	//below copied from Cd::Cd Cd:: operator=(const Cd &d)
+	delete[] label;
+	delete[] performers;
+	cout<<"\n sizeof(right.label) "<<sizeof(right.label);
+		label = new char [sizeof(right.label)];
+	   for(int i=0;label[i]!='\0';i++){
+		   cout<<"\n"<< right.label[i];
+		label[i]=right.label[i];
+	}
 
-	Cd::Cd(right);
-
-	return *this;
+	  // cout<<"\n sizeof(right.performers) "<<sizeof(right.performers);
+       performers=new char[sizeof(right.performers)];
+	   for(int i=0; right.performers[i]!='\0'; i++) 
+    {	
+		//cout<<"\n"<<right.performers[i];
+        performers[i]=right.performers[i];
+    }
+   
+	selections=right.selections;
+	playtime=right.playtime;	   
+		
+	   return *this;
 }

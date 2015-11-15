@@ -15,7 +15,7 @@ public:
 	Classic(const Classic &right);
 	
 	virtual void report() const;
-	virtual Classic  operator=(const Classic &right);
+	virtual Classic&  operator=(const Classic &right);
 };
 
 

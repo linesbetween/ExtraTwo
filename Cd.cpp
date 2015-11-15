@@ -52,13 +52,13 @@ Cd::~Cd(){
 
 void Cd::report() const{
 	cout<<"\n Performer: ";
-	for(int i=0;label[i]!='\0';i++){
-		cout<<label[i];
+	for(int i=0;performers[i]!='\0';i++){
+		cout<<performers[i];
 	}
 
 	cout<<"\n Label: ";
-	for(int i=0;performers[i]!='\0';i++){
-		cout<<performers[i];
+	for(int i=0;label[i]!='\0';i++){
+		cout<<label[i];
 	}
 
 	cout<<"\n Selections: "<<selections;
@@ -67,11 +67,12 @@ void Cd::report() const{
 	
 }
 
-Cd Cd:: operator=(const Cd &d){
+Cd& Cd:: operator=(const Cd &d){
 	cout<<"\n Cd overload =";
 	delete[] label;
 	delete[] performers;
-		label = new char [sizeof(d.label)];
+	
+	label = new char [sizeof(d.label)];
 	   for(int i=0;label[i]!='\0';i++){
 		label[i]=d.label[i];
 	}
