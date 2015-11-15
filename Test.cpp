@@ -28,7 +28,12 @@ int main() {
 
 	cout << "\n Testing assignment: ";
 	Classic copy;
+	cout<<"\n Test:: Classic copy";
 	copy = c2;
+	cout<<"\n Test::copy = c2";
+	cout<<"\n c2.report";
+	c2.report();
+	cout<<"\n copy.report";
 	copy.report();
 
 	system("pause");
