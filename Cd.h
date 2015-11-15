@@ -1,3 +1,7 @@
+/*CIT237 Extracredit 2
+/*Hanfei XU
+*/
+
 #ifndef CD_H
 #define CD_H
 #include<string>
@@ -12,7 +16,9 @@ protected:
 	char *label;
 	int selections; // number of selections
 	double playtime; // playing time in minutes
-	//length counter of performers and label array 
+	//hold length counter of performers and label array
+	//Since the original source array of chars are passed to constructor
+	//as pointer, sizeof(array)is nolonger usable. 
 	int cntP;
 	int cntL;
 

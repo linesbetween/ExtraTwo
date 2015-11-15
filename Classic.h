@@ -1,3 +1,8 @@
+/*CIT237 Extracredit 2
+/*Hanfei XU
+*/
+
+
 #ifndef CLASSIC_H
 #define CLASSIC_H
 #include "Cd.h"
