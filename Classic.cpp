@@ -25,7 +25,7 @@ Classic::~Classic(){
 }
 
 Classic::Classic(const Classic &right){
-	cout<<"\n Classic copy constructor ";
+	//cout<<"\n Classic copy constructor ";
 	//delete[] primary;
 	cntPri=right.cntPri;
 	primary=new char[cntPri];
@@ -46,7 +46,7 @@ void Classic::report() const{
 }
 
 Classic& Classic::operator=(const Classic &right){
-	cout<<"\n Classic overload =";
+	//cout<<"\n Classic overload =";
 	delete[] primary;
 	cntPri=right.cntPri;
 	primary=new char[cntPri];
@@ -60,10 +60,10 @@ Classic& Classic::operator=(const Classic &right){
 	delete[] performers;
 	cntP=right.cntP;
 	cntL=right.cntL;
-	cout<<"\n cntL "<<cntL;
+	//cout<<"\n cntL "<<cntL;
 		label = new char [cntL];
 	   for(int i=0;i<cntL;i++){
-		   cout<<"\n"<< right.label[i];
+		  // cout<<"\n"<< right.label[i];
 		label[i]=right.label[i];
 	}
 

@@ -86,7 +86,7 @@ void Cd::report() const{
 }
 
 Cd& Cd:: operator=(const Cd &d){
-	cout<<"\n Cd overload =";
+	//cout<<"\n Cd overload =";
 	delete[] label;
 	delete[] performers;
 
