@@ -7,7 +7,8 @@ using namespace std;
 class Classic: public Cd{
 protected: 
 	char *primary;
-	
+	int cntPri;
+
 public:
 	Classic();
 	Classic(char* , char* , char* , int n, double x);

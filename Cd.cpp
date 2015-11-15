@@ -13,11 +13,25 @@ Cd::Cd(){
 	
 }
 Cd::Cd(char *s1, char *s2, int n, double x){
-	label=s1;
-	performers=s2;
+	performers=s1;
+	label=s2;
 	selections = n;
 	playtime = x;
+	cntP=0;
+	cntL=0;
 
+	//count array length for *s1 and *s2
+	int i =0;
+	while (s1[i]!='\0'){
+		cntP++;
+		i++;
+	}
+
+	i =0;
+	while (s2[i]!='\0'){
+		cntL++;
+		i++;
+	}
 }
 
 
@@ -26,19 +40,23 @@ Cd::Cd(const Cd &d){
 	//delete[] label;
 	//cout<<"delete default label";
 	//delete[] performers;
-		label = new char [sizeof(d.label)];
+
+	cntP=d.cntP;
+	cntL=d.cntL;
+		label = new char [cntL];
 		//cout<<"new label created";
-	   for(int i=0;label[i]!='\0';i++){
+	   for(int i=0;i<cntP;i++){
 		label[i]=d.label[i];
 	}
-       performers=new char[sizeof(d.performers)];
-	   for(int i=0; d.performers[i]!='\0'; i++) 
+       performers=new char[cntP];
+	   for(int i=0; i<cntL; i++) 
     {
         performers[i]=d.performers[i];
     }
    
 	selections=d.selections;
 	playtime=d.playtime;
+	
 	
 }
 	
@@ -52,12 +70,12 @@ Cd::~Cd(){
 
 void Cd::report() const{
 	cout<<"\n Performer: ";
-	for(int i=0;performers[i]!='\0';i++){
+	for(int i=0;i<cntP;i++){
 		cout<<performers[i];
 	}
 
 	cout<<"\n Label: ";
-	for(int i=0;label[i]!='\0';i++){
+	for(int i=0;i<cntL;i++){
 		cout<<label[i];
 	}
 
@@ -71,19 +89,22 @@ Cd& Cd:: operator=(const Cd &d){
 	cout<<"\n Cd overload =";
 	delete[] label;
 	delete[] performers;
-	
+
+	cntP=d.cntP;
+	cntL=d.cntL;
 	label = new char [sizeof(d.label)];
-	   for(int i=0;label[i]!='\0';i++){
+	   for(int i=0;i<cntL;i++){
 		label[i]=d.label[i];
 	}
        performers=new char[sizeof(d.performers)];
-	   for(int i=0; d.performers[i]!='\0'; i++) 
+	   for(int i=0; i<cntP; i++) 
     {
         performers[i]=d.performers[i];
     }
    
 	selections=d.selections;
 	playtime=d.playtime;
+	
 
 	return *this;
 }

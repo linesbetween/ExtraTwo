@@ -9,8 +9,14 @@ Classic::Classic():Cd(){
 	
 }
 
-Classic::Classic(char * s1, char * s2, char *s3, int n, double x):Cd(s1,s2,n,x){
+Classic::Classic(char * s1, char * s2, char *s3, int n, double x):Cd(s2,s1,n,x){
 	primary = s3;
+	cntPri=0;
+	int i =0;
+	while (s3[i]!='\0'){
+		cntPri++;
+		i++;
+	}
 }
 
 Classic::~Classic(){
@@ -21,8 +27,9 @@ Classic::~Classic(){
 Classic::Classic(const Classic &right){
 	cout<<"\n Classic copy constructor ";
 	//delete[] primary;
-	primary=new char[sizeof(right.primary)];
-	   for(int i=0; right.primary[i]!='\0'; i++) 
+	cntPri=right.cntPri;
+	primary=new char[cntPri];
+	   for(int i=0; i<cntPri; i++) 
     {
         primary[i]=right.primary[i];
     }
@@ -32,7 +39,7 @@ Classic::Classic(const Classic &right){
 
 void Classic::report() const{
 	cout<<"\n Primary: ";
-	for(int i=0;primary[i]!='\0';i++){
+	for(int i=0;i<cntPri;i++){
 		cout<<primary[i];
 	}
 	Cd::report();
@@ -41,8 +48,9 @@ void Classic::report() const{
 Classic& Classic::operator=(const Classic &right){
 	cout<<"\n Classic overload =";
 	delete[] primary;
-	primary=new char[sizeof(right.primary)];
-	   for(int i=0; right.primary[i]!='\0'; i++) 
+	cntPri=right.cntPri;
+	primary=new char[cntPri];
+	   for(int i=0; i<cntPri; i++) 
     {
         primary[i]=right.primary[i];
     }
@@ -50,16 +58,18 @@ Classic& Classic::operator=(const Classic &right){
 	//below copied from Cd::Cd Cd:: operator=(const Cd &d)
 	delete[] label;
 	delete[] performers;
-	cout<<"\n sizeof(right.label) "<<sizeof(right.label);
-		label = new char [sizeof(right.label)];
-	   for(int i=0;label[i]!='\0';i++){
+	cntP=right.cntP;
+	cntL=right.cntL;
+	cout<<"\n cntL "<<cntL;
+		label = new char [cntL];
+	   for(int i=0;i<cntL;i++){
 		   cout<<"\n"<< right.label[i];
 		label[i]=right.label[i];
 	}
 
 	  // cout<<"\n sizeof(right.performers) "<<sizeof(right.performers);
-       performers=new char[sizeof(right.performers)];
-	   for(int i=0; right.performers[i]!='\0'; i++) 
+       performers=new char[cntP];
+	   for(int i=0; i<cntP; i++) 
     {	
 		//cout<<"\n"<<right.performers[i];
         performers[i]=right.performers[i];
