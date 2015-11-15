@@ -1,3 +1,7 @@
+/*CIT237 Extracredit 2
+/*Hanfei XU
+*/
+
 #include "Cd.h"
 #include <iostream>
 #include <iomanip>
@@ -87,6 +91,7 @@ void Cd::report() const{
 
 Cd& Cd:: operator=(const Cd &d){
 	//cout<<"\n Cd overload =";
+	//delete old arrays
 	delete[] label;
 	delete[] performers;
 

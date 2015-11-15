@@ -1,3 +1,8 @@
+/*CIT237 Extracredit 2
+/*Hanfei XU
+*/
+
+
 #include "Cd.h"
 #include "Classic.h"
 #include <iostream>
