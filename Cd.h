@@ -5,13 +5,16 @@ using namespace std;
 
 
 // base class
+
 class Cd { // represents a CD disk
 protected: 
 	char *performers;
 	char *label;
 	int selections; // number of selections
 	double playtime; // playing time in minutes
-	//Actual length of performers and label name
+	//length counter of performers and label array 
+	int cntP;
+	int cntL;
 
 public:
 	Cd(char* , char*, int n, double x);
@@ -21,7 +24,12 @@ public:
 
 	//made virtual for polymorphism
 	virtual void report() const; // reports all the CD data
-	virtual Cd & operator=(const Cd &d);
+	virtual Cd&  operator=(const Cd &d);
+
+	/*
+	template <typename T, size_t N>
+	size_t SizeOfArray( const T(&)[ N ] ){return N;}
+	*/
 };
 
 #endif

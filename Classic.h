@@ -7,7 +7,8 @@ using namespace std;
 class Classic: public Cd{
 protected: 
 	char *primary;
-	
+	int cntPri;
+
 public:
 	Classic();
 	Classic(char* , char* , char* , int n, double x);
@@ -15,7 +16,7 @@ public:
 	Classic(const Classic &right);
 	
 	virtual void report() const;
-	virtual Classic & operator=(const Classic &right);
+	virtual Classic&  operator=(const Classic &right);
 };
 
 
