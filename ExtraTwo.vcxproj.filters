@@ -29,7 +29,7 @@
     <ClCompile Include="Classic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Test.cpp">
+    <ClCompile Include="TestCD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

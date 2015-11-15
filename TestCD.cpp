@@ -1,8 +1,6 @@
 #include <iostream>
-#include "Classic.h"
-#include "Cd.h"
 using namespace std;
-
+#include "Classic.h"
 
 void bravo(const Cd & disk);
 int main() {
@@ -12,34 +10,28 @@ int main() {
 
 	Cd *pcd = &c1;
 
-	cout << "\n Using object directly: ";
+	cout << "Using object directly: \n";
 	c1.report(); // use Cd method
 	c2.report(); // use Classic method
 
-	cout << "\n Using type cd * pointer to objects:";
+	cout << "Using type cd * pointer to objects:\n";
 	pcd->report(); // use cd method for cd object
 	pcd = &c2;
 	pcd->report(); // use Classic method for classic object
 
-	cout << "\n Calling a function with a Cd reference argument:";
+	cout << "Calling a function with a Cd reference argument:\n";
 	bravo(c1);
 	bravo(c2);
 
 
-	cout << "\n Testing assignment: ";
+	cout << "Testing assignment: ";
 	Classic copy;
-	cout<<"\n Test:: Classic copy";
 	copy = c2;
-	cout<<"\n Test::copy = c2";
-	cout<<"\n c2.report";
-	c2.report();
-	cout<<"\n copy.report";
 	copy.report();
 
 	system("pause");
 	return 0;
 }
-
 void bravo(const Cd & disk) {
 	disk.report();
 }
